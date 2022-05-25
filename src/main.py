@@ -1,5 +1,9 @@
+from src.net.sockets import Sockets
+
+
 def main():
-    print()
+    sockets = Sockets()
+    sockets.initialize()
 
 
 if __name__ == "__main__":
