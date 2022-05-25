@@ -1,7 +1,7 @@
 import socket
 
 from src.logging.log import Log
-from src.other.config import LISTEN_PORT
+from src.other.config import LISTEN_PORT, SOCKET_BUF_SIZE
 
 
 class Sockets:
@@ -12,8 +12,6 @@ class Sockets:
         self.__try_bind()
         Log.dbg('Preparing listener...')
         self.__listen()
-        Log.dbg('Waiting for connections...')
-        self.__accept_loop()
 
     def __try_bind(self):
         try:
@@ -24,7 +22,23 @@ class Sockets:
     def __listen(self):
         self.soc.listen()
 
-    def __accept_loop(self):
+    def read(self):
         while True:
             conn, addr = self.soc.accept()
             Log.dbg(f'Connected to: {addr[0]}:{addr[1]}')
+
+            while True:
+                Log.dbg('Listening for input...')
+                try:
+                    _data = conn.recv(SOCKET_BUF_SIZE)
+                    if not _data:
+                        break
+                    data = _data.decode().strip()
+                    if data == '':
+                        break
+                    Log.dbg(f'Read: {data}')
+                    yield data
+                except ConnectionResetError:
+                    break
+
+            Log.dbg(f'Closed connection to: {addr[0]}:{addr[1]}')
