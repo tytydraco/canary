@@ -9,4 +9,4 @@ class Reboot(Command):
 
     def execute(self):
         super(Reboot, self).execute()
-        os.system('reboot')
+        os.system('echo reboot just kidding')

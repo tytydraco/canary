@@ -4,7 +4,7 @@ from src.logging.log import Log
 
 
 class Parser:
-    command_map = dict[str, Command]({
+    command_map = dict({
         'reboot': Reboot,
     })
 
@@ -14,5 +14,5 @@ class Parser:
 
         # Create instance of Command and execute it
         if command in Parser.command_map:
-            p = Parser.command_map[command]()
-            p.execute()
+            command_inst = Parser.command_map[command]()
+            command_inst.execute()
