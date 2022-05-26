@@ -34,13 +34,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "C:/Users/tyler/Documents/Projects/canary/src"
+    "last_opened_file_path": "C:/Users/tyler/Documents/Projects/canary/src/commands"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\tyler\Documents\Projects\canary\src" />
       <recent name="C:\Users\tyler\Documents\Projects\canary\src\commands" />
+      <recent name="C:\Users\tyler\Documents\Projects\canary\src" />
       <recent name="C:\Users\tyler\Documents\Projects\canary\src\logging" />
       <recent name="C:\Users\tyler\Documents\Projects\canary\src\net" />
       <recent name="C:\Users\tyler\Documents\Projects\canary\src\other" />

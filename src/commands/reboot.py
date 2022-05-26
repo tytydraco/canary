@@ -8,4 +8,4 @@ class Reboot(Command):
         super(Reboot, self).__init__(requires_su=True)
 
     def command(self):
-        os.system('echo reboot just kidding')
+        os.system('reboot')

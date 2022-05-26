@@ -1,11 +1,12 @@
-from src.commands.command import Command
 from src.commands.reboot import Reboot
+from src.commands.upgrade import Upgrade
 from src.logging.log import Log
 
 
 class Parser:
     command_map = dict({
         'reboot': Reboot,
+        'upgrade': Upgrade,
     })
 
     @staticmethod
