@@ -17,7 +17,7 @@ class Sockets:
         try:
             self.soc.bind(('', LISTEN_PORT))
         except socket.error as message:
-            Log.err(f'Bind failed: {message[0]}: {message[1]}')
+            Log.err(f'Bind failed: {message}')
 
     def __listen(self):
         self.soc.listen()
