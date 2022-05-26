@@ -18,7 +18,7 @@ class Command(ABC):
             except AttributeError:
                 is_admin = ctypes.windll.shell32.IsUserAnAdmin() != 0
             if not is_admin:
-                raise PermissionError('Command requires elevated privileges')
+                Log.err('Command requires elevated privileges', bail=False)
 
     @abstractmethod
     def execute(self):
