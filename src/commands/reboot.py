@@ -7,6 +7,5 @@ class Reboot(Command):
     def __init__(self):
         super(Reboot, self).__init__(requires_su=True)
 
-    def execute(self):
-        super(Reboot, self).execute()
+    def command(self):
         os.system('echo reboot just kidding')
