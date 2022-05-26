@@ -37,6 +37,18 @@
     "last_opened_file_path": "C:/Users/tyler/Documents/Projects/canary/src"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\tyler\Documents\Projects\canary\src" />
+      <recent name="C:\Users\tyler\Documents\Projects\canary\src\commands" />
+      <recent name="C:\Users\tyler\Documents\Projects\canary\src\logging" />
+      <recent name="C:\Users\tyler\Documents\Projects\canary\src\net" />
+      <recent name="C:\Users\tyler\Documents\Projects\canary\src\other" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tyler\Documents\Projects\canary" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="canary" />
