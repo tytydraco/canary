@@ -24,6 +24,9 @@ class Sockets:
     def __listen(self):
         self.soc.listen()
 
+    def close(self):
+        self.soc.close()
+
     def read(self):
         while True:
             conn, addr = self.soc.accept()
