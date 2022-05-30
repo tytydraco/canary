@@ -16,7 +16,7 @@ Commands are designed to be immutable, meaning that clients should not be able t
 - `upgrade`: Run a full system upgrade via `apt-get`
 
 # Init
-Canary bundles in a tiny init script helper. Scripts are executed every time canary starts up.
+Canary bundles in a tiny init script helper. Scripts are executed every time canary starts up. Scripts MUST have execution permissions.
 
 - `001-setup-watchdog.sh`: Setup and install the Linux Kernel watchdog program to automatically reboot on system freezes
 
