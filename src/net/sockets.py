@@ -31,6 +31,7 @@ class Sockets:
         while True:
             conn, addr = self.soc.accept()
             Log.dbg(f'Connected to: {addr[0]}:{addr[1]}')
+            conn.send(b'+\n')
 
             while True:
                 Log.dbg('Listening for input...')
@@ -40,9 +41,11 @@ class Sockets:
                         break
                     data = _data.decode().strip()
                     if data == '':
+                        conn.send(b'x\n')
                         break
                     Log.dbg(f'Read: {data}')
-                    yield data
+                    conn.send(b'...')
+                    yield conn, data
                 except ConnectionResetError:
                     break
 

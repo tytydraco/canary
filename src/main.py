@@ -14,8 +14,12 @@ def main():
 
     sockets.initialize()
 
-    for command in sockets.read():
-        Parser.handle_command(command)
+    for conn, command in sockets.read():
+        valid = Parser.handle_command(command)
+        if valid:
+            conn.send(b'+\n')
+        else:
+            conn.send(b'x\n')
 
 
 def sigint_handler(signum, frame):

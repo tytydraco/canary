@@ -1,3 +1,4 @@
+from src.commands.ping import Ping
 from src.commands.reboot import Reboot
 from src.commands.upgrade import Upgrade
 from src.logging.log import Log
@@ -7,6 +8,7 @@ class Parser:
     command_map = dict({
         'reboot': Reboot,
         'upgrade': Upgrade,
+        'ping': Ping,
     })
 
     @staticmethod
@@ -17,3 +19,6 @@ class Parser:
         if command in Parser.command_map:
             command_inst = Parser.command_map[command]()
             command_inst.execute()
+            return True
+        else:
+            return False
