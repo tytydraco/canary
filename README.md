@@ -19,6 +19,7 @@ Commands are designed to be immutable, meaning that clients should not be able t
 Canary bundles in a tiny init script helper. Scripts are executed every time canary starts up. Scripts MUST have execution permissions.
 
 - `001-setup-watchdog.sh`: Setup and install the Linux Kernel watchdog program to automatically reboot on system freezes
+- `002-setup-periodic-reboots.sh`: Automatically reboot the pi at 3:00 AM via a crontab entry
 
 # Security
 While convenience and accessibility is essential, security cannot be sacrificed. Canary is designed to keep a one-way stream of information. That means that no output can ever be returned to the client. The client is not allowed to specify any external information to the server for interpreting. Commands are not allowed to have arguments. There is no room for ambiguity.
