@@ -14,6 +14,7 @@ Commands are designed to be immutable, meaning that clients should not be able t
 
 - `reboot`: Reboot the server device
 - `upgrade`: Run a full system upgrade via `apt-get`
+- `ping`: Empty command; responds w/ positive acknowledgement
 
 # Init
 Canary bundles in a tiny init script helper. Scripts are executed every time canary starts up. Scripts MUST have execution permissions.

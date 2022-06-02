@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8cb6c166-ac98-4d1c-892e-59524139c6b1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/sockets.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/sockets.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,14 +32,14 @@
   "keyToString": {
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "C:/Users/tyler/Documents/Projects/canary/src/init",
+    "last_opened_file_path": "C:/Users/tyler/Documents/Projects/canary/src/commands",
     "settings.editor.selected.configurable": "terminal"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\tyler\Documents\Projects\canary\src\init" />
       <recent name="C:\Users\tyler\Documents\Projects\canary\src\commands" />
+      <recent name="C:\Users\tyler\Documents\Projects\canary\src\init" />
       <recent name="C:\Users\tyler\Documents\Projects\canary\src" />
       <recent name="C:\Users\tyler\Documents\Projects\canary\src\logging" />
       <recent name="C:\Users\tyler\Documents\Projects\canary\src\net" />
