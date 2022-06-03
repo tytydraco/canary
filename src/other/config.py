@@ -3,6 +3,9 @@ import os
 # Should we print debug information?
 DEBUG = True
 
+# Should be execute the init scripts?
+INIT = False
+
 # TCP port to listen on
 LISTEN_PORT = 6543
 
