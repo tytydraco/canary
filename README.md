@@ -2,7 +2,8 @@
 A Raspberry Pi maintenance utility
 
 # Installation
-TODO
+- Clone canary to `/root/canary/`
+- `cp /root/canary/canaryd.service /etc/systemd/system/ && chmod +x /etc/systemd/system/canaryd.service && systemctl enable --now canaryd`
 
 # Communication
 To send commands to an active canary server, communicate over TCP using the port specified in `src/other/config.py`. The simplest way to do this is via `nc` on a Linux machine.
