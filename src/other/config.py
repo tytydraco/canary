@@ -1,6 +1,6 @@
-# Should we print debug information?
 import os
 
+# Should we print debug information?
 DEBUG = True
 
 # TCP port to listen on
