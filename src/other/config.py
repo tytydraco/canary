@@ -16,4 +16,4 @@ SOCKET_BUF_SIZE = 1024
 LOGGING = True
 
 # Log file directory location
-LOG_FILE_DIR_PATH = f'{os.getenv("HOME")}/canary_logs'
+LOG_FILE_DIR_PATH = f'./canary_logs'

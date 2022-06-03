@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Restart=always
 RestartSec=5
-ExecStart=/usr/bin/env bash /root/canary/run.sh
+ExecStart=/root/canary/run.sh
 
 [Install]
 WantedBy=multi-user.target
