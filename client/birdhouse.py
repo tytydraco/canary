@@ -31,7 +31,7 @@ def load_reflist():
 
 # Add an entry to the reflist
 def add_reflist(args):
-    parts = args[0].split(':')
+    parts = ' '.join(args).split(':')
     if len(parts) != 3:
         print('bad entry')
         return False
@@ -39,11 +39,21 @@ def add_reflist(args):
     entry = RefEntry(parts[0], parts[1], parts[2])
     reflist.append(entry)
     update_reflist()
+    return True
 
 
 # Delete an entry from the reflist
 def delete_reflist(args):
-    return
+    name = ' '.join(args)
+    finds = [entry for entry in reflist if entry.name == name]
+    if len(finds) > 0:
+        for find in finds:
+            reflist.remove(find)
+        update_reflist()
+        return True
+    else:
+        print('no matches')
+        return False
 
 
 # Update the reflist file with the new data
@@ -60,10 +70,11 @@ def update_reflist():
 def list_reflist():
     scanner = nmap.PortScanner()
     for entry in reflist:
+        print(f'{entry.name: <32}\t', end='')
         status = scanner.scan(entry.address, arguments='-v')
         online = status['nmap']['scanstats']['uphosts'] == '1'
         online_str = 'ONLINE' if online else 'OFFLINE'
-        print(f'{entry.name: <32}\t{online_str}')
+        print(online_str)
 
 
 # Send a command to one entry in the reflist
