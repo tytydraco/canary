@@ -2,16 +2,27 @@ import pathlib
 
 init_path = pathlib.Path(__file__).parent.resolve()
 reflist_path = f'{init_path}/birdhouse'
+pathlib.Path(reflist_path).touch()
+reflist_file = open(reflist_path, 'r+')
+reflist = []
 
 
-# Create the reflist file if it does not yet exist
-def prepare_reflist():
-    return
+class RefEntry:
+    name = ''
+    address = ''
+    port = 0
+
+    def __init__(self, name, address, port):
+        self.name = name
+        self.address = address
+        self.port = port
 
 
 # Parse data from the reflist file into an actual list
 def load_reflist():
-    return
+    for line in reflist_file.readlines():
+        name, address, port = line.split(':')
+        reflist.append(RefEntry(name, address, port))
 
 
 # Add an entry to the reflist
@@ -44,8 +55,14 @@ def usage():
     return
 
 
-def main():
+# Handle all user input
+def input_loop():
     return
+
+
+def main():
+    load_reflist()
+    input_loop()
 
 
 if __name__ == "__main__":
