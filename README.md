@@ -28,3 +28,8 @@ While convenience and accessibility is essential, security cannot be sacrificed.
 
 # Configuration
 See `src/other/config.py` for documentation.
+
+# Client
+You can use the built-in canary client called birdhouse to communicate with clients in a cleaner manner.
+
+- TODO: add available features here
