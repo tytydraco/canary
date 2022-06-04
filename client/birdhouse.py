@@ -1,4 +1,5 @@
 import pathlib
+import nmap
 
 init_path = pathlib.Path(__file__).parent.resolve()
 reflist_path = f'{init_path}/birdhouse'
@@ -26,27 +27,32 @@ def load_reflist():
 
 
 # Add an entry to the reflist
-def add_reflist():
+def add_reflist(args):
     return
 
 
 # Delete an entry from the reflist
-def delete_reflist():
+def delete_reflist(args):
     return
 
 
 # Display the reflist entries and their online statuses
 def list_reflist():
-    return
+    scanner = nmap.PortScanner()
+    for entry in reflist:
+        status = scanner.scan(entry.address, arguments='-v')
+        online = status['nmap']['scanstats']['uphosts'] == '1'
+        online_str = 'ONLINE' if online else 'OFFLINE'
+        print(f'{entry.name: <32}\t{online_str}')
 
 
 # Send a command to one entry in the reflist
-def send_com():
+def send_com(args):
     return
 
 
 # Send a command to all entries in the reflist
-def send_com_all():
+def send_com_all(args):
     return
 
 
@@ -57,7 +63,28 @@ def usage():
 
 # Handle all user input
 def input_loop():
-    return
+    while True:
+        raw_command = input('> ')
+        parts = raw_command.split(' ')
+        command = parts[0]
+        args = parts[1:] if len(parts) > 1 else None
+
+        if command == 'exit':
+            break
+        elif command == 'add':
+            add_reflist(args)
+        elif command == 'delete':
+            delete_reflist(args)
+        elif command == 'list':
+            list_reflist()
+        elif command == 'send':
+            send_com(args)
+        elif command == 'sendall':
+            send_com_all(args)
+        elif command == 'help':
+            usage()
+        else:
+            print('bad command; try "help"')
 
 
 def main():
