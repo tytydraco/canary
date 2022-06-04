@@ -4,7 +4,6 @@ import nmap
 init_path = pathlib.Path(__file__).parent.resolve()
 reflist_path = f'{init_path}/birdhouse'
 pathlib.Path(reflist_path).touch()
-reflist_file = open(reflist_path, 'r+')
 reflist = []
 
 
@@ -21,19 +20,40 @@ class RefEntry:
 
 # Parse data from the reflist file into an actual list
 def load_reflist():
-    for line in reflist_file.readlines():
-        name, address, port = line.split(':')
-        reflist.append(RefEntry(name, address, port))
+    with open(reflist_path, 'r') as reflist_file:
+        for raw_line in reflist_file.readlines():
+            line = raw_line.strip()
+            if line == '':
+                continue
+            name, address, port = line.split(':')
+            reflist.append(RefEntry(name, address, port))
 
 
 # Add an entry to the reflist
 def add_reflist(args):
-    return
+    parts = args[0].split(':')
+    if len(parts) != 3:
+        print('bad entry')
+        return False
+
+    entry = RefEntry(parts[0], parts[1], parts[2])
+    reflist.append(entry)
+    update_reflist()
 
 
 # Delete an entry from the reflist
 def delete_reflist(args):
     return
+
+
+# Update the reflist file with the new data
+def update_reflist():
+    lines = [f'{entry.name}:{entry.address}:{entry.port}' for entry in reflist]
+    with open(reflist_path, 'w') as reflist_file:
+        for line in lines:
+            reflist_file.write(line)
+            reflist_file.write('\n')
+        reflist_file.flush()
 
 
 # Display the reflist entries and their online statuses
