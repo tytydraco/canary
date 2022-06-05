@@ -17,10 +17,14 @@ def main():
 
     for conn, command in sockets.read():
         valid = Parser.handle_command(command)
-        if valid:
-            conn.send(b'+\n')
-        else:
-            conn.send(b'x\n')
+
+        try:
+            if valid:
+                conn.send(b'+\n')
+            else:
+                conn.send(b'x\n')
+        except BrokenPipeError:
+            pass
 
 
 def sigint_handler(signum, frame):

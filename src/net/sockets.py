@@ -31,22 +31,27 @@ class Sockets:
         while True:
             conn, addr = self.soc.accept()
             Log.dbg(f'Connected to: {addr[0]}:{addr[1]}')
-            conn.send(b'+\n')
 
-            while True:
-                Log.dbg('Listening for input...')
-                try:
-                    _data = conn.recv(SOCKET_BUF_SIZE)
-                    if not _data:
-                        break
-                    data = _data.decode().strip()
-                    if data == '':
-                        conn.send(b'x\n')
-                        break
-                    Log.dbg(f'Read: {data}')
-                    conn.send(b'...')
-                    yield conn, data
-                except ConnectionResetError:
-                    break
+            try:
+                conn.send(b'+\n')
 
-            Log.dbg(f'Closed connection to: {addr[0]}:{addr[1]}')
+                while True:
+                    Log.dbg('Listening for input...')
+                    try:
+                        _data = conn.recv(SOCKET_BUF_SIZE)
+                        if not _data:
+                            break
+                        data = _data.decode().strip()
+                        if data == '':
+                            conn.send(b'x\n')
+                            break
+                        Log.dbg(f'Read: {data}')
+                        conn.send(b'...')
+                        yield conn, data
+                    except ConnectionResetError:
+                        break
+            except Exception:
+                Log.err('Connection interrupted', bail=False)
+                continue
+            finally:
+                Log.dbg(f'Closed connection to: {addr[0]}:{addr[1]}')
