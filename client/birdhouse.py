@@ -112,7 +112,13 @@ def send_com_all(args):
 
 # Show usage of the program
 def usage():
-    return
+    print('exit: close the program')
+    print('add <name>:<address>:<port>: add an entry')
+    print('delete <name>: delete an entry')
+    print('list: list all entries')
+    print('send <name> <command>: send command to one entry')
+    print('sendall <command>: send command to all entries')
+    print('help: show list of commands')
 
 
 # Handle all user input
