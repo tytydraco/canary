@@ -1,5 +1,6 @@
 import pathlib
 import nmap
+import socket
 
 init_path = pathlib.Path(__file__).parent.resolve()
 reflist_path = f'{init_path}/birdhouse'
@@ -26,7 +27,7 @@ def load_reflist():
             if line == '':
                 continue
             name, address, port = line.split(':')
-            reflist.append(RefEntry(name, address, port))
+            reflist.append(RefEntry(name, address, int(port)))
 
 
 # Add an entry to the reflist
@@ -79,12 +80,34 @@ def list_reflist():
 
 # Send a command to one entry in the reflist
 def send_com(args):
-    return
+    name = args[0]
+    command = ' '.join(args[1:])
+    finds = [entry for entry in reflist if entry.name == name]
+    if len(finds) > 0:
+        find = finds[0]
+        soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        try:
+            soc.connect((find.address, find.port))
+        except socket.error as message:
+            print(f'connect failed: {message}')
+            return False
+        try:
+            soc.send(command.encode())
+        except BrokenPipeError:
+            print(f'failed to send message')
+            return False
+        out = soc.recv(1024).decode()
+        print(out)
+        soc.close()
+    else:
+        print('no matches')
+        return False
 
 
 # Send a command to all entries in the reflist
 def send_com_all(args):
-    return
+    for entry in reflist:
+        send_com([entry.name, " ".join(args)])
 
 
 # Show usage of the program
