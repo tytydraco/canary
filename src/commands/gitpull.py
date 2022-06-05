@@ -1,9 +1,9 @@
 from src.commands.command import Command
 
 
-class Ping(Command):
+class GitPull(Command):
     def __init__(self):
-        super(Ping, self).__init__(requires_su=False)
+        super(GitPull, self).__init__(requires_su=False)
 
     def command(self):
         return

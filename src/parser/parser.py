@@ -1,3 +1,4 @@
+from src.commands.gitpull import GitPull
 from src.commands.ping import Ping
 from src.commands.reboot import Reboot
 from src.commands.upgrade import Upgrade
@@ -9,6 +10,7 @@ class Parser:
         'reboot': Reboot,
         'upgrade': Upgrade,
         'ping': Ping,
+        'gitpull': GitPull,
     })
 
     @staticmethod
