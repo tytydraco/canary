@@ -30,6 +30,8 @@ While convenience and accessibility is essential, security cannot be sacrificed.
 See `src/other/config.py` for documentation.
 
 # Client
-You can use the built-in canary client called birdhouse to communicate with clients in a cleaner manner.
+You can use the built-in canary client called birdhouse to communicate with clients in a cleaner manner. It creates a file called `birdhouse` (not to be confused with `birdhouse.py`). It will get created automatically upon first launch of birdhouse.
 
-- TODO: add available features here
+The `birdhouse` file stores a list of references to canary clients. It uses the format `name:address:port`. Entries can be managed manually or via the `add` and `delete` commands.
+
+Commands can be sent to individual entries or all of them at once.
