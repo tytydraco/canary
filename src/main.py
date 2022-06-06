@@ -20,9 +20,9 @@ def main():
 
         try:
             if valid:
-                conn.send(b'+\n')
+                conn.send(b'>\n')
             else:
-                conn.send(b'x\n')
+                conn.send(b'!\n')
         except BrokenPipeError:
             pass
 

@@ -33,7 +33,7 @@ class Sockets:
             Log.dbg(f'Connected to: {addr[0]}:{addr[1]}')
 
             try:
-                conn.send(b'+\n')
+                conn.send(b'<')
 
                 while True:
                     Log.dbg('Listening for input...')
@@ -43,7 +43,7 @@ class Sockets:
                             break
                         data = _data.decode().strip()
                         if data == '':
-                            conn.send(b'x\n')
+                            conn.send(b'x')
                             break
                         Log.dbg(f'Read: {data}')
                         conn.send(b'...')
