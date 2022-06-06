@@ -13,6 +13,9 @@ SOCKET_BUF_SIZE = 1024
 # Seconds to wait after a bind fails before trying again
 SOCKET_BIND_RETRY_DELAY = 5
 
+# Seconds to wait before running main loops again
+LOOP_DELAY = 5
+
 # Log all output to a file
 LOGGING = True
 

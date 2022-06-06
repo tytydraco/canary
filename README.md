@@ -22,6 +22,9 @@ Commands are designed to be immutable, meaning that clients should not be able t
 ## Self Update
 **Make sure** that your git client does not require authentication to pull new changes. Otherwise, the server will lock up waiting for a password authentication.
 
+# Loops
+Canary can run a series of loops asynchronously. These can perform essential checks. For example, a process checker that reboots the device if it ever terminates, or a network checker that will reboot the device if it loses connection to the internet.
+
 # Init
 Canary bundles in a tiny init script helper. Scripts are executed every time canary starts up. Scripts MUST have execution permissions.
 

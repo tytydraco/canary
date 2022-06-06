@@ -1,8 +1,15 @@
 import threading
 import time
 
+from src.loop.process_check import ProcessCheck
+from src.other.config import LOOP_DELAY
+
 
 class Loop:
+    loops = [
+        ProcessCheck
+    ]
+
     thread: threading.Thread
     __running = True
 
@@ -11,8 +18,9 @@ class Loop:
 
     def loop(self):
         while self.__running:
-            # TODO: run loops
-            time.sleep(1)
+            for loop_command in self.loops:
+                loop_command().execute()
+            time.sleep(LOOP_DELAY)
 
     def start_loop(self):
         self.thread.start()
