@@ -1,6 +1,7 @@
 from src.commands.gitpull import GitPull
 from src.commands.ping import Ping
 from src.commands.reboot import Reboot
+from src.commands.selfupdate import SelfUpdate
 from src.commands.upgrade import Upgrade
 from src.logging.log import Log
 
@@ -11,6 +12,7 @@ class Parser:
         'upgrade': Upgrade,
         'ping': Ping,
         'gitpull': GitPull,
+        'selfupdate': SelfUpdate,
     })
 
     @staticmethod
