@@ -12,7 +12,6 @@ sockets = Sockets()
 def main():
     Log.setup_logfiles()
     Init.run_init_scripts()
-
     sockets.initialize()
 
     for conn, command in sockets.read():

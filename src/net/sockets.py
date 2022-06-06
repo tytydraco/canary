@@ -34,24 +34,20 @@ class Sockets:
 
             try:
                 conn.send(b'<')
-
-                while True:
-                    Log.dbg('Listening for input...')
-                    try:
-                        _data = conn.recv(SOCKET_BUF_SIZE)
-                        if not _data:
-                            break
-                        data = _data.decode().strip()
-                        if data == '':
-                            conn.send(b'x')
-                            break
-                        Log.dbg(f'Read: {data}')
-                        conn.send(b'...')
-                        yield conn, data
-                    except ConnectionResetError:
-                        break
+                Log.dbg('Listening for input...')
+                _data = conn.recv(SOCKET_BUF_SIZE)
+                if not _data:
+                    continue
+                data = _data.decode().strip()
+                if data == '':
+                    conn.send(b'x')
+                    continue
+                Log.dbg(f'Read: {data}')
+                conn.send(b'...')
+                yield conn, data
             except Exception:
                 Log.err('Connection interrupted', bail=False)
                 continue
             finally:
+                conn.close()
                 Log.dbg(f'Closed connection to: {addr[0]}:{addr[1]}')
