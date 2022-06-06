@@ -1,5 +1,3 @@
-import os
-
 # Should we print debug information?
 DEBUG = True
 

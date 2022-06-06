@@ -1,4 +1,3 @@
-import pathlib
 import signal
 import sys
 
@@ -27,6 +26,7 @@ def main():
             pass
 
 
+# noinspection PyUnusedLocal
 def sigint_handler(signum, frame):
     Log.dbg('Closing sockets...')
     sockets.close()

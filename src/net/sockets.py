@@ -40,6 +40,7 @@ class Sockets:
             conn, addr = self.soc.accept()
             Log.dbg(f'Connected to: {addr[0]}:{addr[1]}')
 
+            # noinspection PyBroadException
             try:
                 conn.send(b'<')
                 Log.dbg('Listening for input...')

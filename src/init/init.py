@@ -2,8 +2,8 @@ import glob
 import pathlib
 import subprocess
 
-from other.config import INIT
 from src.logging.log import Log
+from src.other.config import INIT
 
 
 class Init:
