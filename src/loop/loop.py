@@ -2,7 +2,7 @@ import threading
 import time
 
 from src.loop.process_check import ProcessCheck
-from src.other.config import LOOP_DELAY
+from src.other.config import LOOP_DELAY, LOOPS
 
 
 class Loop:
@@ -23,7 +23,9 @@ class Loop:
             time.sleep(LOOP_DELAY)
 
     def start_loop(self):
-        self.thread.start()
+        if LOOPS:
+            self.thread.start()
 
     def stop_loop(self):
-        self.__running = False
+        if LOOPS:
+            self.__running = False

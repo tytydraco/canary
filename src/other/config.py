@@ -13,6 +13,9 @@ SOCKET_BUF_SIZE = 1024
 # Seconds to wait after a bind fails before trying again
 SOCKET_BIND_RETRY_DELAY = 5
 
+# Run async loops
+LOOPS = True
+
 # Seconds to wait before running main loops again
 LOOP_DELAY = 5
 
